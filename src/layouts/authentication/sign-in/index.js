@@ -43,12 +43,14 @@ function Illustration() {
     <IllustrationLayout
       title="Sign In"
       description="Enter your email and password to sign in"
-      illustration={{
-        image: bgImage,
-        title: '"Attention is the new currency"',
-        description:
-          "The more effortless the writing looks, the more effort the writer actually put into the process.",
-      }}
+      illustration={
+        {
+          // image: bgImage,
+          // title: '"Attention is the new currency"',
+          // description:
+          // "The more effortless the writing looks, the more effort the writer actually put into the process.",
+        }
+      }
     >
       <ArgonBox component="form" role="form">
         <ArgonBox mb={2}>

@@ -200,7 +200,7 @@ function Configurator() {
               Buy Now
             </ArgonButton>
           </ArgonBox>
-          <ArgonBox mb={2}>
+          {/* <ArgonBox mb={2}>
             <ArgonButton
               component={Link}
               href="https://www.creative-tim.com/product/argon-dashboard-material-ui"
@@ -211,7 +211,7 @@ function Configurator() {
             >
               Free Download
             </ArgonButton>
-          </ArgonBox>
+          </ArgonBox> */}
           <ArgonButton
             component={Link}
             href="https://www.creative-tim.com/learning-lab/react/quick-start/argon-dashboard/"

@@ -33,7 +33,7 @@ function SidenavFooter() {
 
   return (
     <ArgonBox opacity={miniSidenav ? 0 : 1} sx={{ transition: "opacity 200ms linear" }}>
-      <ArgonBox position="relative" textAlign="center">
+      {/* <ArgonBox position="relative" textAlign="center">
         <ArgonBox component="img" src={icon} alt="sidebar_illustration" width="60%" />
         <ArgonBox
           width="100%"
@@ -50,8 +50,8 @@ function SidenavFooter() {
             Please check our docs
           </ArgonTypography>
         </ArgonBox>
-      </ArgonBox>
-      <ArgonBox display="flex" flexDirection="column">
+      </ArgonBox> */}
+      {/* <ArgonBox display="flex" flexDirection="column">
         <ArgonButton
           component={Link}
           href="https://www.creative-tim.com/learning-lab/react/overview/argon-dashboard/"
@@ -76,7 +76,7 @@ function SidenavFooter() {
         >
           Upgrade to PRO
         </ArgonButton>
-      </ArgonBox>
+      </ArgonBox> */}
     </ArgonBox>
   );
 }

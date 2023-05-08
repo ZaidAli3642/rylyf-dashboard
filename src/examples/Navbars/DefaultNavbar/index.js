@@ -15,6 +15,7 @@ Coded by www.creative-tim.com
 */
 
 import { useState, useEffect } from "react";
+import rylyfLogo from "../../../assets/images/rylyf-logo.png";
 
 // prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
@@ -41,11 +42,16 @@ import breakpoints from "assets/theme/base/breakpoints";
 // Material Dashboard 2 PRO React context
 import { useArgonController } from "context";
 
+// React Router Dom
+import { useLocation } from "react-router-dom";
+
 function DefaultNavbar({ brand, transparent, light, action }) {
   const [controller] = useArgonController();
   const { darkMode } = controller;
   const [mobileNavbar, setMobileNavbar] = useState(false);
   const [mobileView, setMobileView] = useState(false);
+  const location = useLocation();
+  console.log(location.pathname);
 
   const openMobileNavbar = ({ currentTarget }) => setMobileNavbar(currentTarget.parentNode);
   const closeMobileNavbar = () => setMobileNavbar(false);
@@ -102,18 +108,19 @@ function DefaultNavbar({ brand, transparent, light, action }) {
       >
         <ArgonBox display="flex" justifyContent="space-between" alignItems="center" px={2}>
           <ArgonBox component={Link} to="/" py={transparent ? 1.5 : 0.75} lineHeight={1}>
-            <ArgonTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
+            {/* <ArgonTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
               {brand}
-            </ArgonTypography>
+            </ArgonTypography> */}
+            <ArgonBox component="img" src={rylyfLogo} alt="Rylyf Logo" width="3rem" mr={0.25} />
           </ArgonBox>
           <ArgonBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
-            <DefaultNavbarLink
+            {/* <DefaultNavbarLink
               icon="donut_large"
               name="dashboard"
               route="/dashboard"
               light={light}
-            />
-            <DefaultNavbarLink icon="person" name="profile" route="/profile" light={light} />
+            /> */}
+            {/* <DefaultNavbarLink icon="person" name="profile" route="/profile" light={light} /> */}
             <DefaultNavbarLink
               icon="account_circle"
               name="sign up"
@@ -130,7 +137,7 @@ function DefaultNavbar({ brand, transparent, light, action }) {
           {action &&
             (action.type === "internal" ? (
               <ArgonBox display={{ xs: "none", lg: "inline-block" }}>
-                <ArgonButton
+                {/* <ArgonButton
                   component={Link}
                   to={action.route}
                   variant={action.variant ? action.variant : "contained"}
@@ -138,11 +145,11 @@ function DefaultNavbar({ brand, transparent, light, action }) {
                   size="small"
                 >
                   {action.label}
-                </ArgonButton>
+                </ArgonButton> */}
               </ArgonBox>
             ) : (
               <ArgonBox display={{ xs: "none", lg: "inline-block" }}>
-                <ArgonButton
+                {/* <ArgonButton
                   component="a"
                   href={action.route}
                   target="_blank"
@@ -153,7 +160,7 @@ function DefaultNavbar({ brand, transparent, light, action }) {
                   sx={{ mt: -0.3 }}
                 >
                   {action.label}
-                </ArgonButton>
+                </ArgonButton> */}
               </ArgonBox>
             ))}
           <ArgonBox
@@ -169,7 +176,7 @@ function DefaultNavbar({ brand, transparent, light, action }) {
           </ArgonBox>
         </ArgonBox>
       </ArgonBox>
-      {mobileView && <DefaultNavbarMobile open={mobileNavbar} close={closeMobileNavbar} />}
+      {/* {mobileView && <DefaultNavbarMobile open={mobileNavbar} close={closeMobileNavbar} />} */}
     </Container>
   );
 }

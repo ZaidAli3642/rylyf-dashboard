@@ -15,6 +15,7 @@ Coded by www.creative-tim.com
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
+import rylyfLogo from "../../../../assets/images/rylyf-logo.png";
 
 // @mui material components
 import Grid from "@mui/material/Grid";
@@ -30,14 +31,14 @@ import PageLayout from "examples/LayoutContainers/PageLayout";
 function IllustrationLayout({ color, header, title, description, button, illustration, children }) {
   return (
     <PageLayout background="white">
-      <DefaultNavbar
+      {/* <DefaultNavbar
         action={{
           type: "external",
           route: "https://creative-tim.com/product/argon-dashboard-material-ui",
           label: "Free Download",
           ...button,
         }}
-      />
+      /> */}
       <Grid container>
         <Grid item xs={11} sm={8} md={6} lg={4} xl={3} sx={{ mx: "auto" }}>
           <ArgonBox display="flex" flexDirection="column" justifyContent="center" height="100vh">
@@ -77,14 +78,14 @@ function IllustrationLayout({ color, header, title, description, button, illustr
           >
             <ArgonBox
               component="img"
-              src={illustration.image}
+              src={rylyfLogo}
               alt="background"
-              width="100%"
-              position="absolute"
-              top={0}
-              left={0}
+              width="70%"
+              // position="absolute"
+              // top={0}
+              // left={0}
             />
-            <ArgonBox
+            {/* <ArgonBox
               bgColor={color}
               variant="gradient"
               width="100%"
@@ -93,8 +94,8 @@ function IllustrationLayout({ color, header, title, description, button, illustr
               topl={0}
               left={0}
               opacity={0.7}
-            />
-            <ArgonBox position="relative">
+            /> */}
+            {/* <ArgonBox position="relative">
               {illustration.title && (
                 <ArgonBox mt={6} mb={1}>
                   <ArgonTypography variant="h4" color="white" fontWeight="bold">
@@ -109,7 +110,7 @@ function IllustrationLayout({ color, header, title, description, button, illustr
                   </ArgonTypography>
                 </ArgonBox>
               )}
-            </ArgonBox>
+            </ArgonBox> */}
           </ArgonBox>
         </Grid>
       </Grid>

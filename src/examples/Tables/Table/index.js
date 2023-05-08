@@ -36,7 +36,7 @@ import ArgonTypography from "components/ArgonTypography";
 import typography from "assets/theme/base/typography";
 import borders from "assets/theme/base/borders";
 
-function Table({ columns, rows }) {
+function Table({ columns, rows, renderElements }) {
   const { size, fontWeightBold } = typography;
   const { borderWidth } = borders;
 
@@ -79,53 +79,31 @@ function Table({ columns, rows }) {
   const renderRows = rows.map((row, key) => {
     const rowKey = `row-${key}`;
 
-    const tableRow = columns.map(({ name, align }) => {
+    const tableRow = columns.map(({ name, align, key }) => {
       let template;
 
-      if (Array.isArray(row[name])) {
-        template = (
-          <ArgonBox
-            key={uuidv4()}
-            component="td"
-            p={1}
-            sx={({ palette: { light } }) => ({
-              borderBottom: row.hasBorder ? `${borderWidth[1]} solid ${light.main}` : null,
-            })}
+      template = (
+        <ArgonBox
+          key={uuidv4()}
+          component="td"
+          p={1}
+          textAlign={align}
+          verticalAlign="middle"
+          lineHeight={0.65}
+          sx={({ palette: { light } }) => ({
+            borderBottom: row.hasBorder ? `${borderWidth[1]} solid ${light.main}` : null,
+          })}
+        >
+          <ArgonTypography
+            variant="button"
+            fontWeight="regular"
+            color="secondary"
+            sx={{ display: "inline-block", width: "max-content" }}
           >
-            <ArgonBox display="flex" alignItems="center" py={0.5} px={1}>
-              <ArgonBox mr={2}>
-                <ArgonAvatar src={row[name][0]} name={row[name][1]} variant="rounded" size="sm" />
-              </ArgonBox>
-              <ArgonTypography variant="button" fontWeight="medium" sx={{ width: "max-content" }}>
-                {row[name][1]}
-              </ArgonTypography>
-            </ArgonBox>
-          </ArgonBox>
-        );
-      } else {
-        template = (
-          <ArgonBox
-            key={uuidv4()}
-            component="td"
-            p={1}
-            textAlign={align}
-            verticalAlign="middle"
-            lineHeight={0.65}
-            sx={({ palette: { light } }) => ({
-              borderBottom: row.hasBorder ? `${borderWidth[1]} solid ${light.main}` : null,
-            })}
-          >
-            <ArgonTypography
-              variant="button"
-              fontWeight="regular"
-              color="secondary"
-              sx={{ display: "inline-block", width: "max-content" }}
-            >
-              {row[name]}
-            </ArgonTypography>
-          </ArgonBox>
-        );
-      }
+            {renderElements(row, key)}
+          </ArgonTypography>
+        </ArgonBox>
+      );
 
       return template;
     });

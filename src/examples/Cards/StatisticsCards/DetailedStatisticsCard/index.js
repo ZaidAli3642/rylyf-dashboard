@@ -32,6 +32,8 @@ function DetailedStaticsCard({ bgColor, title, count, percentage, icon, directio
   const [controller] = useArgonController();
   const { darkMode } = controller;
 
+  const handleFunc = () => {};
+
   return (
     <Card>
       <ArgonBox

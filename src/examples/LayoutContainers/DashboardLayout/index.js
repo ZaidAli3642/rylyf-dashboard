@@ -53,7 +53,7 @@ function DashboardLayout({ bgColor, children, ...rest }) {
       })}
     >
       <ArgonBox
-        bgColor={background || "info"}
+        bgColor={background || "linear-gradient(87deg,#ff5196,#ff5551)!important"}
         height="300px"
         width="100vw"
         position="absolute"

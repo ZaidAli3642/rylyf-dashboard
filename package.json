@@ -29,6 +29,9 @@
     "@testing-library/user-event": "14.2.0",
     "chart.js": "3.4.1",
     "chroma-js": "2.4.2",
+    "isomorphic-ws": "^5.0.0",
+    "meteor-node-stubs": "^1.2.5",
+    "meteor-react-js": "^1.1.27",
     "prop-types": "15.8.1",
     "react": "18.1.0",
     "react-chartjs-2": "3.0.4",
@@ -38,10 +41,12 @@
     "react-perfect-scrollbar": "1.5.8",
     "react-router-dom": "6.3.0",
     "react-scripts": "5.0.1",
+    "simpleddp": "^2.2.4",
     "stylis": "4.1.1",
     "stylis-plugin-rtl": "2.1.1",
     "swiper": "^6.0.2",
-    "web-vitals": "2.1.4"
+    "web-vitals": "2.1.4",
+    "ws": "^8.13.0"
   },
   "scripts": {
     "start": "react-scripts start",

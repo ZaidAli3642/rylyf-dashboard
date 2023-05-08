@@ -14,6 +14,8 @@ Coded by www.creative-tim.com
 */
 
 import { useState, useEffect, useMemo } from "react";
+const Meteor = require("meteor-node-stubs");
+import server from "./api/server";
 
 // react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
@@ -50,6 +52,7 @@ import { useArgonController, setMiniSidenav, setOpenConfigurator } from "context
 // Images
 import brand from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
+import rylyfLogo from "assets/images/rylyf-logo.png";
 
 // Icon Fonts
 import "assets/css/nucleo-icons.css";
@@ -99,9 +102,26 @@ export default function App() {
 
   // Setting page scroll to 0 when changing the route
   useEffect(() => {
+    server.on("connected", () => {
+      console.log("connected");
+    });
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
+
+  const handleCheckFunction = async () => {
+    // server.subscribe("");
+    // const service = server.collection("services");
+    // const services = service.fetch();
+    // console.log("service ", services);
+
+    server
+      .call("user.resetPassword", { email: "chrisdelucaemail1@gmail.com" })
+      .then((res) => {
+        console.log("res", res);
+      })
+      .catch((err) => console.log("error", err));
+  };
 
   const getRoutes = (allRoutes) =>
     allRoutes.map((route) => {
@@ -140,39 +160,14 @@ export default function App() {
     </ArgonBox>
   );
 
-  return direction === "rtl" ? (
-    <CacheProvider value={rtlCache}>
-      <ThemeProvider theme={darkMode ? themeDarkRTL : themeRTL}>
-        <CssBaseline />
-        {layout === "dashboard" && (
-          <>
-            <Sidenav
-              color={sidenavColor}
-              brand={darkSidenav || darkMode ? brand : brandDark}
-              brandName="Argon Dashboard 2 PRO"
-              routes={routes}
-              onMouseEnter={handleOnMouseEnter}
-              onMouseLeave={handleOnMouseLeave}
-            />
-            <Configurator />
-            {configsButton}
-          </>
-        )}
-        {layout === "vr" && <Configurator />}
-        <Routes>
-          {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
-      </ThemeProvider>
-    </CacheProvider>
-  ) : (
+  return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />
       {layout === "dashboard" && (
         <>
           <Sidenav
             color={sidenavColor}
-            brand={darkSidenav || darkMode ? brand : brandDark}
+            brand={darkSidenav || darkMode ? rylyfLogo : rylyfLogo}
             brandName="Argon Dashboard 2 PRO"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}

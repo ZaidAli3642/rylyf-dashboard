@@ -60,19 +60,7 @@ function Footer({ company, links }) {
         fontSize={size.sm}
         px={1.5}
       >
-        &copy; {new Date().getFullYear()}, made with
-        <ArgonBox fontSize={size.md} color="text" mb={-0.5} mx={0.25}>
-          <Icon color="inherit" fontSize="inherit">
-            favorite
-          </Icon>
-        </ArgonBox>
-        by
-        <Link href={href} target="_blank">
-          <ArgonTypography variant="button" fontWeight="medium">
-            &nbsp;{name}&nbsp;
-          </ArgonTypography>
-        </Link>
-        for a better web.
+        &copy; {new Date().getFullYear()}, Rylyf
       </ArgonBox>
       <ArgonBox
         component="ul"
@@ -91,7 +79,7 @@ function Footer({ company, links }) {
           },
         })}
       >
-        {renderLinks()}
+        {/* {renderLinks()} */}
       </ArgonBox>
     </ArgonBox>
   );

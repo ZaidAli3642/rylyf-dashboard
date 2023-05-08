@@ -35,7 +35,8 @@ Coded by www.creative-tim.com
 
 // Argon Dashboard 2 MUI layouts
 import Dashboard from "layouts/dashboard";
-import Tables from "layouts/tables";
+import Users from "layouts/users";
+import Affiliations from "layouts/affiliations";
 import Billing from "layouts/billing";
 import VirtualReality from "layouts/virtual-reality";
 import RTL from "layouts/rtl";
@@ -57,13 +58,23 @@ const routes = [
   },
   {
     type: "route",
-    name: "Tables",
-    key: "tables",
-    route: "/tables",
+    name: "Users",
+    key: "users",
+    route: "/users",
     icon: (
       <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-calendar-grid-58" />
     ),
-    component: <Tables />,
+    component: <Users />,
+  },
+  {
+    type: "route",
+    name: "Affiliations",
+    key: "affiliations",
+    route: "/affiliations",
+    icon: (
+      <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-calendar-grid-58" />
+    ),
+    component: <Affiliations />,
   },
   {
     type: "route",
@@ -72,22 +83,6 @@ const routes = [
     route: "/billing",
     icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-credit-card" />,
     component: <Billing />,
-  },
-  {
-    type: "route",
-    name: "Virtual Reality",
-    key: "virtual-reality",
-    route: "/virtual-reality",
-    icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-app" />,
-    component: <VirtualReality />,
-  },
-  {
-    type: "route",
-    name: "RTL",
-    key: "rtl",
-    route: "/rtl",
-    icon: <ArgonBox component="i" color="error" fontSize="14px" className="ni ni-world-2" />,
-    component: <RTL />,
   },
   { type: "title", title: "Account Pages", key: "account-pages" },
   {
@@ -108,14 +103,14 @@ const routes = [
     ),
     component: <SignIn />,
   },
-  {
-    type: "route",
-    name: "Sign Up",
-    key: "sign-up",
-    route: "/authentication/sign-up",
-    icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection" />,
-    component: <SignUp />,
-  },
+  // {
+  //   type: "route",
+  //   name: "Sign Up",
+  //   key: "sign-up",
+  //   route: "/authentication/sign-up",
+  //   icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection" />,
+  //   component: <SignUp />,
+  // },
 ];
 
 export default routes;
